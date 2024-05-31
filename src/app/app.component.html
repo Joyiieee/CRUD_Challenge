@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cute Navbar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+      <div class="flex items-center">
+        <a href="#" class="flex items-center">
+          <img src="assets/chcc.jpg" alt="CHCC Logo" />
+          <span class="self-center text-2xl font-semibold">CHCC</span>
+        </a>
+      </div>
+      <div class="flex items-center">
+        <button id="menu-toggle" class="md:hidden">
+          <svg class="menu-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+        </button>
+        <a routerLink="/add-book" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Add Books</a>
+        <a routerLink="/books-list" routerLinkActive="active">Show Books</a>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+
+  <script>
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>

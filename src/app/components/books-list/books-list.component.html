@@ -1,0 +1,44 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Books List</h2>
+  </div>
+
+  <div *ngIf="deletionMessage" class="alert alert-success">{{deletionMessage}}</div>
+
+  <div class="mb-3">
+    <input type="text" [(ngModel)]="searchTitle" (ngModelChange)="applyFilters()" placeholder="Search by Title" class="form-control mb-2">
+    <input type="text" [(ngModel)]="searchDescription" (ngModelChange)="applyFilters()" placeholder="Search by Description" class="form-control mb-2">
+    <input type="number" [(ngModel)]="minPrice" (ngModelChange)="applyFilters()" placeholder="Min Price" class="form-control mb-2">
+    <input type="number" [(ngModel)]="maxPrice" (ngModelChange)="applyFilters()" placeholder="Max Price" class="form-control mb-2">
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Title</th>
+          <th scope="col">Price</th>
+          <th scope="col">Description</th>
+          <th scope="col">Type</th>
+          <th class="text-center" scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let book of pagedBooks; let i = index">
+          <th scope="row">{{book._id}}</th>
+          <td>{{book.title}}</td>
+          <td>{{book.price}}</td>
+          <td>{{book.description}}</td>
+          <td>{{book.book_type}}</td>
+          <td class="text-center">
+            <button class="btn btn-success btn-sm mr-1" routerLink="/edit-book/{{book._id}}">Edit</button>
+            <button class="btn btn-danger btn-sm" (click)="delete(book._id, i)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <mat-paginator [length]="filteredBooks.length" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 100]" (page)="handlePageEvent($event)" aria-label="Select page"></mat-paginator>
+</div>

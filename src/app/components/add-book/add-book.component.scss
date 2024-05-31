@@ -1,0 +1,56 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #caf0f8;
+  color: #03045e;
+}
+.form-container {
+  background-color: #ffffff;
+  border: 2px solid #90e0ef;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  max-width: 500px;
+  margin: 2rem auto;
+}
+.form-container label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.form-container input {
+  border: 2px solid #00b4d8;
+  border-radius: 8px;
+  padding: 0.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.form-container button {
+  background-color: #0077b6;
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+.form-container button:hover {
+  background-color: #00b4d8;
+}
+.form-container mat-chip-listbox {
+  display: flex;
+  gap: 0.5rem;
+}
+.form-container mat-chip-option {
+  background-color: #90e0ef;
+  border: none;
+  border-radius: 16px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.form-container mat-chip-option:hover {
+  background-color: #00b4d8;
+}
